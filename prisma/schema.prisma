@@ -1,0 +1,30 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model clients {
+  id       Int      @id(map: "clients_pk") @default(autoincrement())
+  name     String
+  whatsapp String
+  going    String
+  return   String
+  packgeId Int
+  packages packages @relation(fields: [packgeId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "clients_fk0")
+}
+
+model packages {
+  id           Int       @id(map: "packages_pk") @default(autoincrement())
+  destiny      String
+  price        Int
+  image        String
+  support      String
+  ticket       String
+  baggage      String
+  departureTax String
+  clients      clients[]
+}
