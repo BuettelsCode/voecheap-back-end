@@ -4,4 +4,5 @@ import { loadEnv } from "./envs";
 
 loadEnv();
 
+
 export default prisma;

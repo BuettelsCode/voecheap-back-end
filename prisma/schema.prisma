@@ -20,7 +20,7 @@ model clients {
 model packages {
   id           Int       @id(map: "packages_pk") @default(autoincrement())
   destiny      String
-  price        Int
+  price        String
   image        String
   support      String
   ticket       String
